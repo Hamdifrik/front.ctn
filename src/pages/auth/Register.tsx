@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Ship, UserPlus, AlertCircle } from 'lucide-react';
 import Button from '../../components/common/Button';
 import { UserRole } from '../../types/auth';
+import ctnBackground from './ctnn.jpg';
 
 interface RegisterFormData {
   name: string;
@@ -69,7 +70,13 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-neutral-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8"
+    style={{
+      backgroundImage: `url(${ctnBackground})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+    }}>
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
           <Ship className="h-12 w-12 text-primary-500" />

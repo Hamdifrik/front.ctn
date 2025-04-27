@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Ship, LogIn, AlertCircle } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import Button from '../../components/common/Button';
+import ctnBackground from './ctnn.jpg';
 
 interface LoginFormData {
   email: string;
@@ -36,24 +37,20 @@ const Login: React.FC = () => {
     }
   };
   
-
-  
   return (
-    <div className="min-h-screen bg-neutral-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="flex justify-center">
-          <Ship className="h-12 w-12 text-primary-500" />
-        </div>
-        <h2 className="mt-6 text-center text-3xl font-bold text-neutral-900">
-          Sign in to CTN e-Services
-        </h2>
-        <p className="mt-2 text-center text-sm text-neutral-600">
-          Access your shipments, bookings, and more
-        </p>
-      </div>
-
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+    <div 
+      className="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8"
+      style={{
+        backgroundImage: `url(${ctnBackground})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      <div className="absolute inset-0 bg-black bg-opacity-50"></div> {/* Overlay pour améliorer la lisibilité */}
+      
+      <div className="relative z-10 sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="bg-white bg-opacity-90 backdrop-blur-sm py-8 px-4 shadow sm:rounded-lg sm:px-10">
           {error && (
             <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-md flex items-start">
               <AlertCircle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
@@ -61,6 +58,7 @@ const Login: React.FC = () => {
             </div>
           )}
           
+          {/* Le reste de votre formulaire reste inchangé */}
           <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-neutral-700">
@@ -167,8 +165,6 @@ const Login: React.FC = () => {
               </Link>
             </div>
           </div>
-          
-      
         </div>
       </div>
     </div>
